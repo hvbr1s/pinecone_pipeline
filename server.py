@@ -4,29 +4,29 @@ import time
 import httpx
 import subprocess
 from tqdm import tqdm
+import os
 
 app = FastAPI()
 
+BASE_PATH = os.path.dirname(os.path.abspath(__file__))  # Gets the directory of the current script
+
 scripts_to_run_a = [
-    
-    "/home/danledger/pinecone_updater/update_academyzd/scraper.py",
-    "/home/danledger/pinecone_updater/update_academyzd/chunker.py",
-    "/home/danledger/pinecone_updater/update_academyzd/index_booter.py",
-    "/home/danledger/pinecone_updater/update_academyzd/updater.py"
-    
+    os.path.join(BASE_PATH, "update_academyzd", "scraper.py"),
+    os.path.join(BASE_PATH, "update_academyzd", "chunker.py"),
+    os.path.join(BASE_PATH, "update_academyzd", "index_booter.py"),
+    os.path.join(BASE_PATH, "update_academyzd", "updater.py")
 ]
 
 scripts_to_run_b = [
-    
-    "/home/danledger/pinecone_updater/update_hc/scraper_b.py",
-    "/home/danledger/pinecone_updater/update_hc/chunker_b.py",
-    "/home/danledger/pinecone_updater/update_hc/index_booter_b.py",
-    "/home/danledger/pinecone_updater/update_hc/updater_b.py"
+    os.path.join(BASE_PATH, "update_hc", "scraper_b.py"),
+    os.path.join(BASE_PATH, "update_hc", "chunker_b.py"),
+    os.path.join(BASE_PATH, "update_hc", "index_booter_b.py"),
+    os.path.join(BASE_PATH, "update_hc", "updater_b.py")
 ]
 
 @app.get("/")
 def read_root():
-    return FileResponse("/home/danledger/pinecone_updater/templates/index.html")
+    return FileResponse(os.path.join(BASE_PATH, "templates", "index.html"))
 
 @app.get("/fetch_data")
 async def fetch_data():
