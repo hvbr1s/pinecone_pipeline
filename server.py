@@ -8,16 +8,19 @@ from tqdm import tqdm
 app = FastAPI()
 
 scripts_to_run_a = [
-    "/home/danledger/pinecone_updater/update_academyzd/index_booter.py",
+    
     "/home/danledger/pinecone_updater/update_academyzd/scraper.py",
     "/home/danledger/pinecone_updater/update_academyzd/chunker.py",
+    "/home/danledger/pinecone_updater/update_academyzd/index_booter.py",
     "/home/danledger/pinecone_updater/update_academyzd/updater.py"
+    
 ]
 
 scripts_to_run_b = [
-    "/home/danledger/pinecone_updater/update_hc/index_booter_b.py",
+    
     "/home/danledger/pinecone_updater/update_hc/scraper_b.py",
     "/home/danledger/pinecone_updater/update_hc/chunker_b.py",
+    "/home/danledger/pinecone_updater/update_hc/index_booter_b.py",
     "/home/danledger/pinecone_updater/update_hc/updater_b.py"
 ]
 
